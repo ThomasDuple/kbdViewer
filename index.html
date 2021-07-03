@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBD Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="keyboardReader.js" defer></script>
+</head>
+<body>
+    <div id="page">
+        <canvas id="canvas" width="1500" height="500"></canvas>
+    </div>
+    <div id="menu">
+        <div>
+            <h1>Font</h1>
+            <select name="font" id="sel_font">
+                <option value="Arial">Arial</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Sans-Serif">Sans-Serif</option>
+                <option value="Serif">Serif</option>
+                <option value="Crimson Text">Crimson Text</option>
+            </select>
+        </div>
+        <div>
+            <h1>Layout</h1>
+            <select name="layout" id="sel_layout">
+                <optgroup label = "100% / FULLSIZE">
+                <option value="100-qwerty">QWERTY</option>
+                <option value="100-azerty">AZERTY</option>
+                <optgroup label = "80% / TKL">
+                <option value="80-qwerty">QWERTY</option>
+                <option value="80-azerty">AZERTY</option>
+                <optgroup label = "75%">
+                <option value="75-qwerty">QWERTY</option>
+                <option value="75-azerty">AZERTY</option>
+                <optgroup label = "68%">
+                <option value="68-qwerty">QWERTY</option>
+                <option value="68-azerty">AZERTY</option>
+                <optgroup label = "60%">
+                <option value="60-qwerty">QWERTY</option>
+                <option value="60-azerty">AZERTY</option>
+            </select>
+        </div>
+        <div>
+            <h1>Color</h1>
+            <div>
+                <label for="ipt_color_case">Case</label>
+                <input id="ipt_color_case" name="ipt_color_case" type="color" value="#ffffff">
+            </div>
+            <div>
+                <label for="ipt_color_kc">Keycaps</label>
+                <input id="ipt_color_kc" name="ipt_color_kc" type="color" value="#ffffff">
+            </div>
+            <div>
+                <label for="ipt_color_txt">Texte</label>
+                <input id="ipt_color_txt" name="ipt_color_txt" type="color" value="#000000">
+            </div>
+            <div>
+                <label for="ipt_color_bd">Border</label>
+                <input id="ipt_color_bd" name="ipt_color_bd" type="color" value="#000000">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
