@@ -5,9 +5,9 @@ var var_layout = "qwerty";
 var space_bar_layout = 0;
 var font = 'Arial';
 var col_case = "#ffffff";
-var col_keycaps = "#ffffff";
+var col_keycaps = "#eeeeee";
 var col_text = "#000000";
-var col_border = "#000000";
+var col_border = "#444444";
 
 var dim = "3D";
 
@@ -20,7 +20,8 @@ fetch("./layouts/spacebar.json")
 var canvas = document.getElementById('Canvas2D');
 
 function draw() {
-    if (dim == "2D") {
+    if (dim == "2D") { // 2D
+        document.getElementById("ipt_color_bd").removeAttribute("disabled");
         canvas.style.display = "block";
         document.getElementById('Canvas3D').style.display = "none";
         const u = (document.body.clientWidth * 0.85 - document.getElementById("menu").clientWidth) / layout.width;
@@ -76,12 +77,15 @@ function draw() {
             }
             y += 1
         }      
-    } else {
+    } else { // 3D
+        document.getElementById("ipt_color_bd").setAttribute("disabled", true);
         canvas.style.display = "none";
         document.getElementById('Canvas3D').style.display = "block";
+        remove_all_3D();
         const u = 5;
         const spacing = 0.03 * u;
         var y = 0;
+        drawCase();
 
         for (let i = 0; i < layout.rows.length; i++) {
             

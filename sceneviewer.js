@@ -9,7 +9,6 @@ renderer.domElement.id = "Canvas3D";
 
 const texture = new THREE.TextureLoader().load( 'texturekeycap.jpg' );
 const material = new THREE.MeshBasicMaterial( { map : texture } );
-var colorcase = new THREE.MeshBasicMaterial( {color: col_case} );
 
 
 var keys=[];
@@ -21,7 +20,9 @@ function renderkey(x,y,width,length,keytxt) {
     pyramidtes.rotateY( Math.PI / 4 );
     pyramidtes = pyramidtes.toNonIndexed(); 
     pyramidtes.computeVertexNormals(); 
-    var meshpyr = new THREE.Mesh( pyramidtes, material );
+    
+    var colorkc = new THREE.MeshBasicMaterial( {color: col_keycaps} );
+    var meshpyr = new THREE.Mesh( pyramidtes, colorkc );
     meshpyr.scale.set( width,3, length );
     scene.add(meshpyr);
     meshpyr.position.y = 3.2; 
@@ -29,25 +30,17 @@ function renderkey(x,y,width,length,keytxt) {
     meshpyr.position.z= y; 
 
     kcaps =meshpyr;
-    var pyrabox = new THREE.Box3().setFromObject( meshpyr );
+   
 
-    pyrabox.getCenter();
-
-    let keywidth = pyrabox.getSize().x;
-    let keyheight = pyrabox.getSize().y;
-    console.log("keycaps:");
-
-    console.log(meshpyr.position.x,meshpyr.position.z);
-
-    getkeytxt( meshpyr.position.x,meshpyr.position.z,keywidth,keyheight,keytxt);
+    getkeytxt( meshpyr.position.x,meshpyr.position.z,keytxt);
     keys.push(keytxt);
 }
 
 
-function getkeytxt(keyx,keyy,keywidth,keyheight,keytxt) {
+function getkeytxt(keyx,keyy,keytxt) {
     
     const loader = new THREE.FontLoader();
-    const materialcube = new THREE.MeshBasicMaterial( {color: 0xFFFFF} );
+    const materialcube = new THREE.MeshBasicMaterial( {color: col_text} );
 
     if (keytxt.length==1) {
 loader.load( 'Fira.json', function ( font ) {
@@ -86,14 +79,16 @@ else{
 }
 }
 
+function drawCase() {
+    var colorcase = new THREE.MeshBasicMaterial( {color: col_case} );
+    let geometrycube = new THREE.BoxGeometry( 3.20, 0.5, 1.20  );
+    let kbdcase = new THREE.Mesh( geometrycube, colorcase );
+    kbdcase.scale.set(30, 9, 40 );
+    kbdcase.position.x=47   ;
+    kbdcase.position.z=10;
 
-const geometrycube = new THREE.BoxGeometry( 3.20, 0.5, 1.20  );
-const kbdcase = new THREE.Mesh( geometrycube, colorcase );
-kbdcase.scale.set(30, 9, 40 );
-kbdcase.position.x=47   ;
-kbdcase.position.z=10;
-
-scene.add( kbdcase );
+    scene.add( kbdcase );
+}
 
 const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
 camera.position.z = 1;
@@ -105,6 +100,7 @@ controls.minDistance = 20;
 controls.update();
 function remove_all_3D() {
     console.log(keys.length); 
+    console.log("length:", scene.children.length)
     for( var i = scene.children.length - 1; i >= 0; i--) { 
         obj = scene.children[i];
         scene.remove(obj); 
