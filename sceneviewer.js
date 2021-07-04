@@ -9,7 +9,7 @@ renderer.domElement.id = "Canvas3D";
 
 const texture = new THREE.TextureLoader().load( 'texturekeycap.jpg' );
 const material = new THREE.MeshBasicMaterial( { map : texture } );
-var colorcase = new THREE.MeshBasicMaterial( {color: 0xFFBCBC} );
+var colorcase = new THREE.MeshBasicMaterial( {color: col_case} );
 
 function renderkey(x,y,width,length,keytxt) {
     var pyramidtes = new THREE.CylinderGeometry( 0.8 / Math.sqrt( 2 ), 1 / Math.sqrt( 2 ), 1, 4, 2 ); 

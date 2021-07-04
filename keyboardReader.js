@@ -96,16 +96,14 @@ function draw() {
                         var space_row = spacebars[space_bar_layout].row;
                         for (let k = 0; k < space_row.length; k++) {
                             space_key = space_row[k]
+                            renderkey(x*u+spacing+(space_key.width/2*u),y*u+spacing+(space_key.height/2*u), space_key.width*u-(2*spacing),space_key.height*u-(2*spacing),space_key.text[0]);
                             x += space_key.width;
-                            //drawKey(ctx, u, x*u+spacing, y*u+spacing, space_key.width*u-(2*spacing), space_key.height*u-(2*spacing), space_key.text[0]);
-                            //renderkey(x*u+spacing+(space_key.width/2*u),y*u+spacing+(space_key.height/2*u), space_key.width*u-(2*spacing),space_key.height*u-(2*spacing),space_key.text[0]);
                         }
                         break;
                     case "ISO_ENTER":
                         // TODO
                         break;
                     default:
-                        //drawKey(ctx, u, x*u+spacing, y*u+spacing, key.width*u-(2*spacing), key.height*u-(2*spacing), key.text[0]);
                         renderkey(x*u+spacing+(key.width/2*u),y*u+spacing+(key.height/2*u), key.width*u-(2*spacing),key.height*u-(2*spacing),key.text[0]);
                         x += key.width;
                 }
