@@ -8,7 +8,7 @@ var col_border = "#000000";
 var canvas = document.getElementById('canvas');
 
 function draw() {
-    const u = 50;
+    const u = 4;
     const spacing = 0.03 * u;
     canvas.width = (layout.width+1)*u;
     canvas.height = (layout.height+1)*u;
@@ -48,6 +48,8 @@ function draw() {
                     ctx.strokeStyle = col_border;
                     ctx.lineWidth = 0.02 * u;
                     ctx.rect(x*u+spacing, y*u+spacing, key.width*u-(2*spacing), key.height*u-(2*spacing));
+                    renderkey(x*u+spacing+(key.width/2*u),y*u+spacing+(key.height/2*u), key.width*u-(2*spacing),key.height*u-(2*spacing),key.text[0]);
+                    
                     ctx.fillStyle = col_keycaps;
                     ctx.fill();
                     ctx.stroke();
@@ -100,4 +102,4 @@ document.getElementById("sel_layout").addEventListener('change', () => {
     loadLayout(document.getElementById("sel_layout").value);
 });
 
-loadLayout("75-qwerty");
+loadLayout("100-qwerty");

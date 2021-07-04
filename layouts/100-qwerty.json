@@ -76,17 +76,17 @@
                         "width": 1,
                         "height": 1,
                         "margin_left": 0.5,
-                        "text" : ["PRINT"]
+                        "text" : ["♥"]
                     },
                     {
                         "width": 1,
                         "height": 1,
-                        "text" : ["SCROLL"]
+                        "text" : ["■"]
                     },
                     {
                         "width": 1,
                         "height": 1,
-                        "text" : ["PAUSE"]
+                        "text" : ["►"]
                     }
                 ]
             },
@@ -177,7 +177,7 @@
                     {
                         "width": 1,
                         "height": 1,
-                        "text" : ["P. UP"]
+                        "text" : ["↑"]
                     },
                     {
                         "width": 1,
@@ -288,7 +288,7 @@
                     {
                         "width": 1,
                         "height": 1,
-                        "text" : ["P. DOWN"]
+                        "text" : ["↓"]
                     },
                     {
                         "width": 1,

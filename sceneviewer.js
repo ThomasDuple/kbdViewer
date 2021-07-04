@@ -38,11 +38,11 @@ function renderkey(x,y,width,length,keytxt) {
 
 function getkeytxt(keyx,keyy,keywidth,keyheight,keytxt) {
     
-const loader = new THREE.FontLoader();
-loader.load( 'crimson_regular.json', function ( font ) {
-
+    const loader = new THREE.FontLoader();
     const materialcube = new THREE.MeshBasicMaterial( {color: 0xFFFFF} );
 
+    if (keytxt.length==1) {
+loader.load( 'Fira.json', function ( font ) {
 	const textgeometry = new THREE.TextGeometry( keytxt, {
 		font: font,
 		size: 1,
@@ -50,26 +50,40 @@ loader.load( 'crimson_regular.json', function ( font ) {
 		curveSegments: 5
 	
 	} );
-    
     const texte = new THREE.Mesh( textgeometry, materialcube );
-    console.log('textescale : ');
-
-    console.log( )
-
     texte.position.x=keyx-texte.scale.x/2.9;
     texte.position.z=keyy+texte.scale.y/4;
     texte.position.y=4.73;
     texte.rotation.x=-Math.PI/2;
     scene.add( texte ); 
-
 } );
-
 }
-renderkey(2,9,3,3,'_');
+else{
+    loader.load( 'crimson_regular.json', function ( font ) {
+        const textgeometry = new THREE.TextGeometry( keytxt, {
+            font: font,
+            size: 0.5,
+            height: 0,
+            curveSegments: 5
+        
+        } );
+        const texte = new THREE.Mesh( textgeometry, materialcube );
+        texte.position.x=keyx-texte.scale.x;
+        texte.position.z=keyy+texte.scale.y/2;
+        texte.position.y=4.73;
+        texte.rotation.x=-Math.PI/2;
+        scene.add( texte ); 
+    } );
+}
+}
+
 
 const geometrycube = new THREE.BoxGeometry( 3.20, 0.5, 1.20  );
 const kbdcase = new THREE.Mesh( geometrycube, colorcase );
-kbdcase.scale.set( 50, 9, 50 );
+kbdcase.scale.set(30, 9, 40 );
+kbdcase.position.x=48;
+kbdcase.position.z=10;
+
 scene.add( kbdcase );
 
 const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
