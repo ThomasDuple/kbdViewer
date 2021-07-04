@@ -7,18 +7,22 @@
     <title>KBD Viewer</title>
     <link rel="stylesheet" href="style.css">
     <script src="keyboardReader.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.101.1/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="sceneviewer.js" defer></script>
 </head>
 <body>
     <div id="dim_toggle_box" >
         <span>2D</span>
         <label class="switch">
-            <input id="dim_toggle" type="checkbox">
+            <input id="dim_toggle" type="checkbox" checked="true">
             <span class="slider round"></span>
         </label>
         <span>3D</span>
     </div>
     <div id="page">
-        <canvas id="canvas" width="1500" height="500"></canvas>
+        <canvas id="Canvas2D" width="1500" height="500"></canvas>
     </div>
     <div id="menu">
         <div>

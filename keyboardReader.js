@@ -9,7 +9,7 @@ var col_keycaps = "#ffffff";
 var col_text = "#000000";
 var col_border = "#000000";
 
-var dim = "2D";
+var dim = "3D";
 
 fetch("./layouts/spacebar.json")
         .then(rep => rep.json())
@@ -17,11 +17,12 @@ fetch("./layouts/spacebar.json")
             spacebars = data;
         });
 
-var canvas = document.getElementById('canvas');
+var canvas = document.getElementById('Canvas2D');
 
 function draw() {
     if (dim == "2D") {
         canvas.style.display = "block";
+        document.getElementById('Canvas3D').style.display = "none";
         const u = (document.body.clientWidth * 0.85 - document.getElementById("menu").clientWidth) / layout.width;
         const spacing = 0.03 * u;
         canvas.width = (layout.width+1)*u;
@@ -77,6 +78,7 @@ function draw() {
         }      
     } else {
         canvas.style.display = "none";
+        document.getElementById('Canvas3D').style.display = "block";
         const u = 5;
         const spacing = 0.03 * u;
         var y = 0;
@@ -96,6 +98,7 @@ function draw() {
                             space_key = space_row[k]
                             x += space_key.width;
                             //drawKey(ctx, u, x*u+spacing, y*u+spacing, space_key.width*u-(2*spacing), space_key.height*u-(2*spacing), space_key.text[0]);
+                            //renderkey(x*u+spacing+(space_key.width/2*u),y*u+spacing+(space_key.height/2*u), space_key.width*u-(2*spacing),space_key.height*u-(2*spacing),space_key.text[0]);
                         }
                         break;
                     case "ISO_ENTER":

@@ -3,8 +3,9 @@ var renderer = new THREE.WebGLRenderer( {alpha: true} );
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; 
 
-renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setSize( document.body.clientWidth*0.95 - document.getElementById("menu").clientWidth, document.body.clientHeight );
 document.body.appendChild( renderer.domElement );
+renderer.domElement.id = "Canvas3D";
 
 const texture = new THREE.TextureLoader().load( 'texturekeycap.jpg' );
 const material = new THREE.MeshBasicMaterial( { map : texture } );
