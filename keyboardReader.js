@@ -106,7 +106,9 @@ function draw() {
                         break;
                     default:
                         //drawKey(ctx, u, x*u+spacing, y*u+spacing, key.width*u-(2*spacing), key.height*u-(2*spacing), key.text[0]);
+                        
                         renderkey(x*u+spacing+(key.width/2*u),y*u+spacing+(key.height/2*u), key.width*u-(2*spacing),key.height*u-(2*spacing),key.text[0]);
+                       
                         x += key.width;
                 }
             }

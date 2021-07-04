@@ -11,6 +11,11 @@ const texture = new THREE.TextureLoader().load( 'texturekeycap.jpg' );
 const material = new THREE.MeshBasicMaterial( { map : texture } );
 var colorcase = new THREE.MeshBasicMaterial( {color: 0xFFBCBC} );
 
+
+var keys=[];
+var kcaps ;
+var kfont ;
+
 function renderkey(x,y,width,length,keytxt) {
     var pyramidtes = new THREE.CylinderGeometry( 0.8 / Math.sqrt( 2 ), 1 / Math.sqrt( 2 ), 1, 4, 2 ); 
     pyramidtes.rotateY( Math.PI / 4 );
@@ -23,6 +28,7 @@ function renderkey(x,y,width,length,keytxt) {
     meshpyr.position.x= x; 
     meshpyr.position.z= y; 
 
+    kcaps =meshpyr;
     var pyrabox = new THREE.Box3().setFromObject( meshpyr );
 
     pyrabox.getCenter();
@@ -34,6 +40,7 @@ function renderkey(x,y,width,length,keytxt) {
     console.log(meshpyr.position.x,meshpyr.position.z);
 
     getkeytxt( meshpyr.position.x,meshpyr.position.z,keywidth,keyheight,keytxt);
+    keys.push(keytxt);
 }
 
 
@@ -69,6 +76,7 @@ else{
         
         } );
         const texte = new THREE.Mesh( textgeometry, materialcube );
+        kfont = texte;
         texte.position.x=keyx-texte.scale.x;
         texte.position.z=keyy+texte.scale.y/2;
         texte.position.y=4.73;
@@ -82,7 +90,7 @@ else{
 const geometrycube = new THREE.BoxGeometry( 3.20, 0.5, 1.20  );
 const kbdcase = new THREE.Mesh( geometrycube, colorcase );
 kbdcase.scale.set(30, 9, 40 );
-kbdcase.position.x=48;
+kbdcase.position.x=47   ;
 kbdcase.position.z=10;
 
 scene.add( kbdcase );
@@ -95,7 +103,17 @@ const controls = new THREE.OrbitControls( camera, renderer.domElement );
 controls.maxDistance = 350;
 controls.minDistance = 20;
 controls.update();
+function remove_all_3D() {
+    console.log(keys.length); 
+    for( var i = scene.children.length - 1; i >= 0; i--) { 
+        obj = scene.children[i];
+        scene.remove(obj); 
+   }   
+    
+}
+ 
 
+    
 function animate() {
 	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
