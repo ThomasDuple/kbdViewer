@@ -6,7 +6,7 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-const texture = new THREE.TextureLoader().load( 'kekra.jpg' );
+const texture = new THREE.TextureLoader().load( 'texturekeycap.jpg' );
 const material = new THREE.MeshBasicMaterial( { map : texture } );
 var colorcase = new THREE.MeshBasicMaterial( {color: 0xFFBCBC} );
 
@@ -26,13 +26,17 @@ function renderkey(x,y,width,length,keytxt) {
 
     pyrabox.getCenter();
 
-    let cx = pyrabox.getCenter().x;
-    let cy = pyrabox.getCenter().y;
+    let keywidth = pyrabox.getSize().x;
+    let keyheight = pyrabox.getSize().y;
+    console.log("keycaps:");
 
-    getkeytxt(cx,cy,width,length,keytxt);
+    console.log(meshpyr.position.x,meshpyr.position.z);
+
+    getkeytxt( meshpyr.position.x,meshpyr.position.z,keywidth,keyheight,keytxt);
 }
 
-function getkeytxt(cx,cy,width,length,keytxt) {
+
+function getkeytxt(keyx,keyy,keywidth,keyheight,keytxt) {
     
 const loader = new THREE.FontLoader();
 loader.load( 'crimson_regular.json', function ( font ) {
@@ -43,35 +47,25 @@ loader.load( 'crimson_regular.json', function ( font ) {
 		font: font,
 		size: 1,
 		height: 0,
-		curveSegments: 5,
-		bevelEnabled: false,
-		bevelThickness: 1,
-		bevelSize: 4,
-		bevelOffset: 0,
-		bevelSegments: 1
+		curveSegments: 5
+	
 	} );
     
     const texte = new THREE.Mesh( textgeometry, materialcube );
-    var box = new THREE.Box3().setFromObject( texte );
-    var txtx = box.getSize().x;
-    var txty = box.getSize().y;
+    console.log('textescale : ');
 
-    console.log(txtx);    console.log(txtx);
+    console.log( )
 
-    let cxfont = box.getCenter().x;
-    let cyfont = box.getCenter().y;
-
-    console.log( box.min, box.max, );
-    texte.position.y=4.73         ;
-    texte.position.x=(cx-(cxfont-txtx));
-    texte.position.z=(cy-(cyfont-txty));
+    texte.position.x=keyx-texte.scale.x/2.9;
+    texte.position.z=keyy+texte.scale.y/4;
+    texte.position.y=4.73;
     texte.rotation.x=-Math.PI/2;
-    scene.add( texte );
+    scene.add( texte ); 
 
 } );
 
 }
-renderkey(1,1,3,3,'A');
+renderkey(2,9,3,3,'_');
 
 const geometrycube = new THREE.BoxGeometry( 3.20, 0.5, 1.20  );
 const kbdcase = new THREE.Mesh( geometrycube, colorcase );
