@@ -1,0 +1,138 @@
+[
+    {
+        "name" : "6.0",
+        "row" : [
+            {
+                "width": 1.5,
+                "height": 1,
+                "text" : ["CTRL"]
+            },
+            {
+                "width": 1,
+                "height": 1,
+                "text" : ["WIN"]
+            },
+            {
+                "width": 1.5,
+                "height": 1,
+                "text" : ["ALT"]
+            },
+            {
+                "width": 6,
+                "height": 1,
+                "text" : ["SPACE"]
+            },
+            {
+                "width": 1.5,
+                "height": 1,
+                "text" : ["ALT"]
+            },
+            {
+                "width": 1,
+                "height": 1,
+                "text" : ["WIN"]
+            },
+            {
+                "width": 1,
+                "height": 1,
+                "text" : ["FN"]
+            },
+            {
+                "width": 1.5,
+                "height": 1,
+                "text" : ["CTRL"]
+            }
+        ]
+    },
+    {
+        "name" : "6.25",
+        "row" : [
+            {
+                "width": 1.25,
+                "height": 1,
+                "text" : ["CTRL"]
+            },
+            {
+                "width": 1.25,
+                "height": 1,
+                "text" : ["WIN"]
+            },
+            {
+                "width": 1.25,
+                "height": 1,
+                "text" : ["ALT"]
+            },
+            {
+                "width": 6.25,
+                "height": 1,
+                "text" : ["SPACE"]
+            },
+            {
+                "width": 1.25,
+                "height": 1,
+                "text" : ["ALT"]
+            },
+            {
+                "width": 1.25,
+                "height": 1,
+                "text" : ["WIN"]
+            },
+            {
+                "width": 1.25,
+                "height": 1,
+                "text" : ["FN"]
+            },
+            {
+                "width": 1.25,
+                "height": 1,
+                "text" : ["CTRL"]
+            }
+        ]
+    },
+    {
+        "name" : "6.5",
+        "row" : [
+            {
+                "width": 1.5,
+                "height": 1,
+                "text" : ["CTRL"]
+            },
+            {
+                "width": 1,
+                "height": 1,
+                "text" : ["WIN"]
+            },
+            {
+                "width": 1.25,
+                "height": 1,
+                "text" : ["ALT"]
+            },
+            {
+                "width": 6.5,
+                "height": 1,
+                "text" : ["SPACE"]
+            },
+            {
+                "width": 1.25,
+                "height": 1,
+                "text" : ["ALT"]
+            },
+            {
+                "width": 1,
+                "height": 1,
+                "text" : ["WIN"]
+            },
+            {
+                "width": 1,
+                "height": 1,
+                "text" : ["FN"]
+            },
+            {
+                "width": 1.5,
+                "height": 1,
+                "text" : ["CTRL"]
+            }
+        ]
+    },
+    {}
+]

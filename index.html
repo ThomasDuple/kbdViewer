@@ -9,6 +9,14 @@
     <script src="keyboardReader.js" defer></script>
 </head>
 <body>
+    <div id="dim_toggle_box" >
+        <span>2D</span>
+        <label class="switch">
+            <input id="dim_toggle" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <span>3D</span>
+    </div>
     <div id="page">
         <canvas id="canvas" width="1500" height="500"></canvas>
     </div>
@@ -25,42 +33,60 @@
         </div>
         <div>
             <h1>Layout</h1>
-            <select name="layout" id="sel_layout">
-                <optgroup label = "100% / FULLSIZE">
-                <option value="100-qwerty">QWERTY</option>
-                <option value="100-azerty">AZERTY</option>
-                <optgroup label = "80% / TKL">
-                <option value="80-qwerty">QWERTY</option>
-                <option value="80-azerty">AZERTY</option>
-                <optgroup label = "75%">
-                <option value="75-qwerty">QWERTY</option>
-                <option value="75-azerty">AZERTY</option>
-                <optgroup label = "68%">
-                <option value="68-qwerty">QWERTY</option>
-                <option value="68-azerty">AZERTY</option>
-                <optgroup label = "60%">
-                <option value="60-qwerty">QWERTY</option>
-                <option value="60-azerty">AZERTY</option>
-            </select>
+            <table>
+                <tr>
+                    <td><label for="ipt_color_case">Size</label></td>
+                    <td>
+                        <select name="size" id="sel_size">
+                            <option value="100">100% / FULLSIZE</option>
+                            <option value="80">80% / TKL</option>
+                            <option value="75">75%</option>
+                            <option value="68">68%</option>
+                            <option value="60">60%</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="ipt_color_kc">Layout</label></td>
+                    <td>
+                        <select name="layout" id="sel_layout">
+                            <option value="qwerty">QWERTY</option>
+                            <option value="azerty">AZERTY</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="ipt_color_txt">Spacebar</label></td>
+                    <td>
+                        <select name="spacebar" id="sel_spacebar">
+                            <option value="0">6.0</option>
+                            <option value="1">6.25</option>
+                            <option value="2">6.5</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div>
             <h1>Color</h1>
-            <div>
-                <label for="ipt_color_case">Case</label>
-                <input id="ipt_color_case" name="ipt_color_case" type="color" value="#ffffff">
-            </div>
-            <div>
-                <label for="ipt_color_kc">Keycaps</label>
-                <input id="ipt_color_kc" name="ipt_color_kc" type="color" value="#ffffff">
-            </div>
-            <div>
-                <label for="ipt_color_txt">Texte</label>
-                <input id="ipt_color_txt" name="ipt_color_txt" type="color" value="#000000">
-            </div>
-            <div>
-                <label for="ipt_color_bd">Border</label>
-                <input id="ipt_color_bd" name="ipt_color_bd" type="color" value="#000000">
-            </div>
+            <table>
+                <tr>
+                    <td><label for="ipt_color_case">Case</label></td>
+                    <td><input id="ipt_color_case" name="ipt_color_case" type="color" value="#ffffff"></td>
+                </tr>
+                <tr>
+                    <td><label for="ipt_color_kc">Keycaps</label></td>
+                    <td><input id="ipt_color_kc" name="ipt_color_kc" type="color" value="#ffffff"></td>
+                </tr>
+                <tr>
+                    <td><label for="ipt_color_txt">Texte</label></td>
+                    <td><input id="ipt_color_txt" name="ipt_color_txt" type="color" value="#000000"></td>
+                </tr>
+                <tr>
+                    <td><label for="ipt_color_bd">Border</label></td>
+                    <td><input id="ipt_color_bd" name="ipt_color_bd" type="color" value="#000000"></td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>

@@ -419,44 +419,10 @@
     {
         "row" : [
             {
-                "width": 1.25,
+                "width": 15,
                 "height": 1,
-                "text" : ["CTRL"]
-            },
-            {
-                "width": 1.25,
-                "height": 1,
-                "text" : ["WIN"]
-            },
-            {
-                "width": 1.25,
-                "height": 1,
-                "text" : ["ALT"]
-            },
-            {
-                "width": 6.25,
-                "height": 1,
-                "text" : ["SPACE"]
-            },
-            {
-                "width": 1.25,
-                "height": 1,
-                "text" : ["ALT"]
-            },
-            {
-                "width": 1.25,
-                "height": 1,
-                "text" : ["WIN"]
-            },
-            {
-                "width": 1.25,
-                "height": 1,
-                "text" : ["FN"]
-            },
-            {
-                "width": 1.25,
-                "height": 1,
-                "text" : ["CTRL"]
+                "text" : ["TFK"],
+                "type" : "SPACE_ROW"
             },
             {
                 "width": 1,
