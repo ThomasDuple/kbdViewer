@@ -1,14 +1,13 @@
 const scene = new THREE.Scene();
 var renderer = new THREE.WebGLRenderer( {alpha: true} );
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap; 
+
 
 renderer.setSize( document.body.clientWidth*0.95 - document.getElementById("menu").clientWidth, document.body.clientHeight );
 document.body.appendChild( renderer.domElement );
 renderer.domElement.id = "Canvas3D";
 
 const texture = new THREE.TextureLoader().load( 'texturekeycap.jpg' );
-const material = new THREE.MeshBasicMaterial( { map : texture } );
+const material = new THREE.MeshLambertMaterial( { map : texture } );
 
 
 var keys=[];
@@ -21,7 +20,7 @@ function renderkey(x,y,width,length,keytxt) {
     pyramidtes = pyramidtes.toNonIndexed(); 
     pyramidtes.computeVertexNormals(); 
     
-    var colorkc = new THREE.MeshBasicMaterial( {color: col_keycaps} );
+    var colorkc = new THREE.MeshLambertMaterial( {color: col_keycaps} );
     var meshpyr = new THREE.Mesh( pyramidtes, colorkc );
     meshpyr.scale.set( width,3, length );
     scene.add(meshpyr);
@@ -40,7 +39,7 @@ function renderkey(x,y,width,length,keytxt) {
 function getkeytxt(keyx,keyy,keytxt) {
     
     const loader = new THREE.FontLoader();
-    const materialcube = new THREE.MeshBasicMaterial( {color: col_text} );
+    const materialcube = new THREE.MeshLambertMaterial( {color: col_text} );
 
     if (keytxt.length==1) {
 loader.load( 'Fira.json', function ( font ) {
@@ -80,14 +79,15 @@ else{
 }
 
 function drawCase() {
-    var colorcase = new THREE.MeshBasicMaterial( {color: col_case} );
+    var colorcase = new THREE.MeshLambertMaterial( {color: col_case} );
     let geometrycube = new THREE.BoxGeometry( 3.20, 0.5, 1.20  );
     let kbdcase = new THREE.Mesh( geometrycube, colorcase );
-    kbdcase.scale.set(30, 9, 40 );
-    kbdcase.position.x=47   ;
-    kbdcase.position.z=10;
-
+    kbdcase.scale.set(38, 9, 32 );
+    kbdcase.position.x=58;
+    kbdcase.position.z=15;
     scene.add( kbdcase );
+        draw_light();
+
 }
 
 const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
@@ -107,9 +107,30 @@ function remove_all_3D() {
    }   
     
 }
- 
+ function draw_light() {
+     console.log("zizi")
+     const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+     directionalLight.position.y = 5;
+     scene.add( directionalLight );
+     const directionalLight2 = new THREE.DirectionalLight( 0xffffff, 1 );
+     directionalLight2.position.x = 10;
+     directionalLight2.position.z = 10;
+     scene.add( directionalLight2 );
+     const directionalLight3 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+     directionalLight3.position.x = 40;
+     directionalLight3.position.z = 20;
+     scene.add( directionalLight3);
+     const directionalLight4 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+     directionalLight3.position.x = -150;
+     directionalLight3.position.z = 10;
+     scene.add( directionalLight4    );
+     const directionalLight5 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+     directionalLight5.position.x = 10;
+     directionalLight5.position.z = -60;
+     scene.add( directionalLight5    );
+ }
 
-    
+
 function animate() {
 	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
